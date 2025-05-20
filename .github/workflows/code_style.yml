@@ -1,0 +1,22 @@
+name: Code Quality Analysis
+
+on: [push, pull_request]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install SonarQube scanner
+        run: |
+          wget -O sonarqube.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner.zip
+          unzip sonarqube.zip
+
+      - name: Run SonarQube analysis
+        run: ./sonar-scanner/bin/sonar-scanner \
+          -Dsonar.projectKey=test-django \
+          -Dsonar.sources=blog/ \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.login=${{ secrets.SONARQUBE_TOKEN }}
