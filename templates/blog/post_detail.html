@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<h1>{{ post.title }}</h1>
+<p>Автор: {{ post.author.username }} | Дата: {{ post.created_on|date:"Y-m-d H:i" }}</p>
+<div>{{ post.content }}</div>
+
+<h3>Коментарі</h3>
+{% for comment in comments %}
+  <div class="comment">
+    <p><strong>{{ comment.user.username }}</strong> ({{ comment.created_on|date:"Y-m-d H:i" }}):</p>
+    <p>{{ comment.content }}</p>
+  </div>
+{% empty %}
+  <p>Коментарів немає.</p>
+{% endfor %}
+
+{% if user.is_authenticated %}
+  <h3>Додати коментар</h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Надіслати</button>
+  </form>
+{% else %}
+  <p>Будь ласка, <a href="{% url 'login' %}">увійдіть</a>, щоб залишити коментар.</p>
+{% endif %}
+{% endblock %}

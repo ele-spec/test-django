@@ -1,0 +1,20 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<h1>Профіль користувача {{ user.username }}</h1>
+<p>Ім'я: {{ user.first_name }} {{ user.last_name }}</p>
+<p>Email: {{ user.email }}</p>
+{% if profile.photo %}
+  <img src="{{ profile.photo.url }}" alt="Фото профілю" style="max-width:150px;">
+{% else %}
+  <p>Фото не встановлено.</p>
+{% endif %}
+
+<h2>Ваші пости</h2>
+<ul>
+{% for post in posts %}
+  <li><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a> ({{ post.created_on|date:"Y-m-d" }})</li>
+{% empty %}
+  <li>Ви ще не створили жодного поста.</li>
+{% endfor %}
+</ul>
+{% endblock %}

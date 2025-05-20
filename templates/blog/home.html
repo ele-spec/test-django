@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<h1>Всі пости</h1>
+{% for post in posts %}
+  <div class="post-preview">
+    <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+    <p>Автор: {{ post.author.username }} | Дата: {{ post.created_on|date:"Y-m-d H:i" }}</p>
+    <p>{{ post.content|truncatechars:100 }}</p>
+  </div>
+{% empty %}
+  <p>Поки що немає записів.</p>
+{% endfor %}
+{% endblock %}
