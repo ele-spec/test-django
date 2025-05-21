@@ -19,8 +19,5 @@ jobs:
           pip install -r requirements.txt
           pip install pytest pytest-django pytest-cov
 
-      - name: Set up Django settings
-        run: echo "DJANGO_SETTINGS_MODULE=blogproject.settings" >> $GITHUB_ENV
-
       - name: Run Django Unit Tests with Coverage
         run: pytest --cov=blog blog/tests/
