@@ -12,7 +12,8 @@ class PostModelTest(TestCase):
         post = Post.objects.create(title="Test Post", content="Some content", author=self.user)
         self.assertEqual(post.title, "Test Post")
         self.assertEqual(post.author.username, "testuser")
-        self.assertIsNotNone(post.created_on) 
+        self.assertIsNotNone(post.created_on)  # Перевіряє наявність дати створення
+
     def test_update_post(self):
         """Перевіряє оновлення поста"""
         post = Post.objects.create(title="Old Title", content="Some content", author=self.user)
@@ -24,4 +25,3 @@ class PostModelTest(TestCase):
         """Перевіряє метод __str__ моделі Post"""
         post = Post.objects.create(title="Test Post", content="Some content", author=self.user)
         self.assertEqual(str(post), "Test Post")
-
