@@ -1,8 +1,13 @@
 from django.test import TestCase
 from blog.forms import PostForm
 
-class FormsTest(TestCase):
+class PostFormTest(TestCase):
     def test_valid_form(self):
-        form_data = {"title": "Valid Title", "content": "Valid Content"}
+        form_data = {"title": "Test Form", "content": "Testing content"}
         form = PostForm(data=form_data)
         self.assertTrue(form.is_valid())
+
+    def test_invalid_form(self):
+        form_data = {"title": "", "content": ""}
+        form = PostForm(data=form_data)
+        self.assertFalse(form.is_valid())
