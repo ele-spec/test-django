@@ -1,10 +1,10 @@
 from django.urls import path
-from . import views
+from .views import home, register, profile, create_post, post_detail
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('register/', views.register, name='register'),
-    path('profile/', views.profile, name='profile'),
-    path('post/new/', views.create_post, name='create_post'),
-    path('post/<int:pk>/', views.post_detail, name='post_detail'),
+    path('', home, name='home'),  # ✅ Головна сторінка
+    path('register/', register, name='register'),  # ✅ Реєстрація
+    path('profile/', profile, name='profile'),  # ✅ Профіль користувача
+    path('post/new/', create_post, name='create_post'),  # ✅ Створення допису
+    path('post/<int:pk>/', post_detail, name='post_detail'),  # ✅ Детальна сторінка поста
 ]

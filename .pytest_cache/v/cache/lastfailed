@@ -1,0 +1,20 @@
+{
+  "blog/tests/test_forms.py::UserRegisterFormTest::test_user_register_form_invalid_passwords_mismatch": true,
+  "blog/tests/test_forms.py::UserRegisterFormTest::test_user_register_form_save_commit_false": true,
+  "blog/tests/test_forms.py::UserRegisterFormTest::test_user_register_form_valid_data": true,
+  "blog/tests/test_forms.py::UserRegisterFormTest::test_user_register_form_valid_data_with_photo": true,
+  "blog/tests/test_forms.py::CommentFormTest::test_comment_form_valid_data": true,
+  "blog/tests/test_forms.py::PostFormTest::test_post_form_max_length_title": true,
+  "blog/tests/test_forms.py::CommentFormTest::test_comment_form_max_length_content": true,
+  "blog/tests/test_forms.py::TestUserRegisterForm": true,
+  "blog/tests/test_forms.py::TestPostForm": true,
+  "blog/tests/test_forms.py::TestCommentForm": true,
+  "blog/tests/test_models.py::TestCase": true,
+  "blog/tests/test_models.py::ProfileModelTest": true,
+  "blog/tests/test_models.py::PostModelTest": true,
+  "blog/tests/test_models.py::CommentModelTest": true,
+  "blog/tests/test_url.py::SimpleTestCase": true,
+  "blog/tests/test_url.py::UrlsTest": true,
+  "blog/tests/test_views.py::TestCase": true,
+  "blog/tests/test_views.py::ViewsTest": true
+}
